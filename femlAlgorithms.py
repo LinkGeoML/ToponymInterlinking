@@ -32,7 +32,7 @@ from xgboost import XGBClassifier
 # We'll use this library to make the display pretty
 from tabulate import tabulate
 
-from external.datasetcreator import strip_accents, LSimilarityVars, lsimilarity_terms, score_per_term, weighted_terms
+from datasetcreator import strip_accents, LSimilarityVars, lsimilarity_terms, score_per_term, weighted_terms
 from helpers import perform_stemming, normalize_str, sorted_nicely, StaticValues
 
 

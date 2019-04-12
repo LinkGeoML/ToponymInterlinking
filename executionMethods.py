@@ -7,7 +7,7 @@ import json
 
 from femlAlgorithms import *
 from helpers import normalize_str, getRelativePathtoWorking
-from external.datasetcreator import filter_dataset, build_dataset_from_geonames
+from datasetcreator import filter_dataset, build_dataset_from_geonames
 from helpers import StaticValues
 
 

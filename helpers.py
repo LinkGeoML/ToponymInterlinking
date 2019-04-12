@@ -7,7 +7,7 @@ import re
 from langdetect import detect, lang_detect_exception
 import pycountry
 
-from external.datasetcreator import damerau_levenshtein, jaccard, jaro, jaro_winkler, monge_elkan, cosine, \
+from datasetcreator import damerau_levenshtein, jaccard, jaro, jaro_winkler, monge_elkan, cosine, \
     strike_a_match, soft_jaccard, sorted_winkler, permuted_winkler, skipgram, davies, l_jaro_winkler, lsimilarity, \
     avg_lsimilarity
 
