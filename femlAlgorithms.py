@@ -273,7 +273,7 @@ class baseMetrics:
         else: self.num_false += 1.0
 
     @abstractmethod
-    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, freqTerms=None, custom_thres='orig', selectable_features=None):
+    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, custom_thres='orig', selectable_features=None):
         pass
 
     def _compute_stats(self, idx, results=False):
@@ -393,8 +393,8 @@ class calcSotAMetrics(baseMetrics):
         self.predictedState[varnm][idx - 1] += 1.0
         return res
 
-    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, freqTerms=None,
-                 custom_thres='orig', selectable_features=None):
+    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, custom_thres='orig',
+                 selectable_features=None):
         tot_res = ""
         flag_true_match = 1.0 if row['res'].upper() == "TRUE" else 0.0
 
@@ -498,8 +498,8 @@ class calcCustomFEML(baseMetrics):
 
         super(calcCustomFEML, self).__init__(len(self.classifiers), njobs, accures)
 
-    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, freqTerms=False,
-                 custom_thres='orig', selectable_features=None):
+    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, custom_thres='orig',
+                 selectable_features=None):
         if row['res'].upper() == "TRUE":
             if len(self.Y1) < ((self.num_true + self.num_false) / 2.0): self.Y1.append(1.0)
             else: self.Y2.append(1.0)
@@ -720,8 +720,8 @@ class calcCustomFEMLExtended(baseMetrics):
 
         super(calcCustomFEMLExtended, self).__init__(len(self.classifiers), njobs, accures)
 
-    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, freqTerms=False,
-                 custom_thres='orig', selectable_features=None):
+    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, custom_thres='orig',
+                 selectable_features=None):
         if row['res'].upper() == "TRUE":
             if len(self.Y1) < ((self.num_true + self.num_false) / 2.0): self.Y1.append(1.0)
             else: self.Y2.append(1.0)
@@ -1139,8 +1139,8 @@ class calcLSimilarities(baseMetrics):
 
         return tot_res
 
-    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, freqTerms=None,
-                 custom_thres='orig', features=None, selectable_features=None):
+    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, custom_thres='orig',
+                 features=None, selectable_features=None):
         tot_res = ""
         flag_true_match = 1.0 if row['res'].upper() == "TRUE" else 0.0
 
@@ -1188,8 +1188,8 @@ class testMetrics(baseMetrics):
         self.predictedState[varnm][idx - 1] += 1.0
         return res
 
-    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, freqTerms=None,
-                 custom_thres='orig', term_split_thres=0.55):
+    def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, custom_thres='orig',
+                 term_split_thres=0.55):
         tot_res = ""
         flag_true_match = 1.0 if row['res'].upper() == "TRUE" else 0.0
 

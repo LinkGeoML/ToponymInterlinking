@@ -60,12 +60,18 @@ from docopt import docopt
 from kitchen.text.converters import getwriter
 
 import executionMethods as rc
-from helpers import getRelativePathtoWorking
+from helpers import getRelativePathtoWorking, StaticValues
+from datasetcreator import LSimilarityVars
 
 
 def main(args):
     UTF8Writer = getwriter('utf8')
     sys.stdout = UTF8Writer(sys.stdout)
+
+    if args["--onlyLATIN"]:
+        LSimilarityVars.per_metric_optimal_values = StaticValues.MetricOptimalValues['latin']
+    elif args['-e'] == 'all':
+        LSimilarityVars.per_metric_optimal_values = StaticValues.MetricOptimalValues['global']
 
     dataset_path = [x for x in args['-d'].split(',')]
 
