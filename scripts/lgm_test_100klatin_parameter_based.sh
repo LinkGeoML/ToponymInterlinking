@@ -3,7 +3,7 @@ parent_path=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cd "$parent_path"
 
 echo "Comparison-based interlinking..."
-python ../feml.py -d datasets/dataset-string-similarity.txt --onlyLATIN --sort --canonical
+python ../feml.py -d datasets/dataset-string-similarity.txt --ev lSimilarityMetrics --onlyLATIN --sort --canonical
 
 echo ""
 echo "Classification-based interlinking..."
