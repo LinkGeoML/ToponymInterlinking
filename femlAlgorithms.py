@@ -206,23 +206,23 @@ class FEMLFeatures:
             if os.path.isdir(os.path.join(os.getcwd(), 'input/')) \
             else (os.path.isdir(os.path.join(os.getcwd(), '../input/')), os.path.join(os.getcwd(), '../input/'))
 		if input_path[0]:
-            for f in glob.iglob(os.path.join(input_path[1], '*gram*.csv')):
-                gram_type = 'tokens' if 'token' in os.path.basename(os.path.normpath(f)) else 'chars'
-                with open(f) as csvfile:
-                    print("Loading frequent terms from file {}...".format(f))
-                    reader = csv.DictReader(csvfile, fieldnames=["term", "no"], delimiter='\t')
-                    _ = reader.fieldnames
-                    # go to next line after header
-                    next(reader)
+			for f in glob.iglob(os.path.join(input_path[1], '*gram*.csv')):
+				gram_type = 'tokens' if 'token' in os.path.basename(os.path.normpath(f)) else 'chars'
+				with open(f) as csvfile:
+					print("Loading frequent terms from file {}...".format(f))
+					reader = csv.DictReader(csvfile, fieldnames=["term", "no"], delimiter='\t')
+					_ = reader.fieldnames
+					# go to next line after header
+					next(reader)
 
-                    for i, row in enumerate(reader):
-                        if i >= FEMLFeatures.no_freq_terms:
-                            break
+					for i, row in enumerate(reader):
+						if i >= FEMLFeatures.no_freq_terms:
+							break
 
-                        LSimilarityVars.freq_ngrams[gram_type].add(row['term'].decode('utf8'))
-            print('Frequent terms loaded.')
+						LSimilarityVars.freq_ngrams[gram_type].add(row['term'].decode('utf8'))
+			print('Frequent terms loaded.')
 		else:
-            print("Folder 'input' does not exist")
+			print("Folder 'input' does not exist")
 
     def update_weights(self, w):
         if isinstance(w, tuple) and len(w) >= 3:
