@@ -205,7 +205,7 @@ class FEMLFeatures:
 		input_path = (True, os.path.join(os.getcwd(), 'input/')) \
             if os.path.isdir(os.path.join(os.getcwd(), 'input/')) \
             else (os.path.isdir(os.path.join(os.getcwd(), '../input/')), os.path.join(os.getcwd(), '../input/'))
-        if input_path[0]:
+		if input_path[0]:
             for f in glob.iglob(os.path.join(input_path[1], '*gram*.csv')):
                 gram_type = 'tokens' if 'token' in os.path.basename(os.path.normpath(f)) else 'chars'
                 with open(f) as csvfile:
@@ -221,7 +221,7 @@ class FEMLFeatures:
 
                         LSimilarityVars.freq_ngrams[gram_type].add(row['term'].decode('utf8'))
             print('Frequent terms loaded.')
-        else:
+		else:
             print("Folder 'input' does not exist")
 
     def update_weights(self, w):
