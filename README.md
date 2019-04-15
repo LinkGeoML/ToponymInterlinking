@@ -1,5 +1,5 @@
 # ToponymInterlinking
-This is the Python code used to implement and evaluate the proposed LinkGeoML models for toponym interlinking paper sumbitted in [SSTD2019](http://sstd2019.org/) (under review). The dataset folder contains the train datasets used for evaluation. For the test dataset, we used the one from the Toponym-Matching work.
+This is the Python code used to implement and evaluate the proposed LinkGeoML models for toponym interlinking paper sumbitted in [SSTD2019](http://sstd2019.org/) (under review). The dataset folder contains the train datasets used for evaluation. For the test dataset, we used the one from the Toponym-Matching work (see [Setup](./README.md#setup)).
 
 Setup
 ------------
