@@ -7,15 +7,11 @@ bleach==3.0.2
 chardet==2.3.0
 configparser==3.5.0
 coverage==4.5.3
-cryptography==1.7.1
 decorator==4.3.0
 defusedxml==0.5.0
 docopt==0.6.2
 entrypoints==0.2.3
 enum34==1.1.6
-euca2ools===3.3-devel
-funcsigs==1.0.2
-functools32==3.2.3.post2
 futures==3.2.0
 idna==2.2
 ipaddress==1.0.22
@@ -48,7 +44,6 @@ pycountry==18.12.8
 pycountry-convert==0.7.2
 pycrypto==2.6.1
 Pygments==2.3.1
-pygobject==3.22.0
 pyparsing==2.3.1
 pytest==4.3.1
 pytest-cov==2.6.1
@@ -60,7 +55,6 @@ pyxdg==0.25
 PyYAML==3.12
 pyzmq==17.1.2
 repoze.lru==0.7
-requestbuilder===devel
 requests==2.12.4
 scandir==1.10.0
 scikit-learn==0.20.3
