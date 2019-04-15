@@ -202,10 +202,11 @@ class FEMLFeatures:
         return fvec_str1, fvec_str2
 
     def get_freqterms(self):
-        if not os.path.isdir(os.path.join(os.getcwd(), 'input/')):
-            print("Folder ./input/ does not exist")
-        else:
-            for f in glob.iglob('./input/*gram*.csv'):
+		input_path = (True, os.path.join(os.getcwd(), 'input/')) \
+            if os.path.isdir(os.path.join(os.getcwd(), 'input/')) \
+            else (os.path.isdir(os.path.join(os.getcwd(), '../input/')), os.path.join(os.getcwd(), '../input/'))
+        if input_path[0]:
+            for f in glob.iglob(os.path.join(input_path[1], '*gram*.csv')):
                 gram_type = 'tokens' if 'token' in os.path.basename(os.path.normpath(f)) else 'chars'
                 with open(f) as csvfile:
                     print("Loading frequent terms from file {}...".format(f))
@@ -220,6 +221,8 @@ class FEMLFeatures:
 
                         LSimilarityVars.freq_ngrams[gram_type].add(row['term'].decode('utf8'))
             print('Frequent terms loaded.')
+        else:
+            print("Folder 'input' does not exist")
 
     def update_weights(self, w):
         if isinstance(w, tuple) and len(w) >= 3:
