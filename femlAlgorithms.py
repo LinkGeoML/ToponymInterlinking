@@ -307,9 +307,9 @@ class baseMetrics:
         # print("Processing time per 50K records =", timer)
         # print("")
 		print("| Method\t\t& Accuracy\t& Precision\t& Recall\t& F1-Score\t& Time (sec)")  # (50K Pairs)")
-        print("||{0}\t& {1}\t& {2}\t& {3}\t& {4}\t& {5}".format(method, acc, pre, rec, f1, timer))
+		print("||{0}\t& {1}\t& {2}\t& {3}\t& {4}\t& {5}".format(method, acc, pre, rec, f1, timer))
         # print("")
-        sys.stdout.flush()
+		sys.stdout.flush()
 
     def print_stats(self):
         for idx, m in enumerate(StaticValues.methods):
@@ -398,43 +398,43 @@ class calcSotAMetrics(baseMetrics):
 
     def evaluate(self, row, sorting=False, stemming=False, canonical=False, permuted=False, custom_thres='orig',
                  selectable_features=None):
-        tot_res = ""
-        flag_true_match = 1.0 if row['res'].upper() == "TRUE" else 0.0
+		tot_res = ""
+		flag_true_match = 1.0 if row['res'].upper() == "TRUE" else 0.0
 
-        a, b = transform(row['s1'], row['s2'], sorting=sorting, stemming=stemming, canonical=canonical)
+		a, b = transform(row['s1'], row['s2'], sorting=sorting, stemming=stemming, canonical=canonical)
 
-        tot_res += self._generic_evaluator(1, 'damerau_levenshtein', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(8, 'jaccard', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(2, 'jaro', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(3, 'jaro_winkler', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(4, 'jaro_winkler', a[::-1], b[::-1], flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(11, 'monge_elkan', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(7, 'cosine', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(9, 'strike_a_match', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(12, 'soft_jaccard', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(5, 'sorted_winkler', a, b, flag_true_match, custom_thres)
-        if permuted: tot_res += self._generic_evaluator(6, 'permuted_winkler', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(10, 'skipgram', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(13, 'davies', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(14, 'l_jaro_winkler', a, b, flag_true_match, custom_thres)
-        tot_res += self._generic_evaluator(15, 'l_jaro_winkler', a[::-1], b[::-1], flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(1, 'damerau_levenshtein', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(8, 'jaccard', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(2, 'jaro', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(3, 'jaro_winkler', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(4, 'jaro_winkler', a[::-1], b[::-1], flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(11, 'monge_elkan', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(7, 'cosine', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(9, 'strike_a_match', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(12, 'soft_jaccard', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(5, 'sorted_winkler', a, b, flag_true_match, custom_thres)
+		if permuted: tot_res += self._generic_evaluator(6, 'permuted_winkler', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(10, 'skipgram', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(13, 'davies', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(14, 'l_jaro_winkler', a, b, flag_true_match, custom_thres)
+		tot_res += self._generic_evaluator(15, 'l_jaro_winkler', a[::-1], b[::-1], flag_true_match, custom_thres)
 		if sorting:
 			tot_res += self._generic_evaluator(16, 'lsimilarity', a, b, flag_true_match, custom_thres)
 			tot_res += self._generic_evaluator(17, 'avg_lsimilarity', a, b, flag_true_match, custom_thres)
 
-        if self.accuracyresults:
-            if self.file is None:
-                file_name = 'dataset-accuracyresults-sim-metrics'
-                if canonical:
-                    file_name += '_canonical'
-                if sorting:
-                    file_name += '_sorted'
-                self.file = open(file_name + '.csv', 'w+')
+		if self.accuracyresults:
+			if self.file is None:
+				file_name = 'dataset-accuracyresults-sim-metrics'
+				if canonical:
+					file_name += '_canonical'
+				if sorting:
+					file_name += '_sorted'
+				self.file = open(file_name + '.csv', 'w+')
 
-            if flag_true_match == 1.0:
-                self.file.write("TRUE{0}\t{1}\t{2}\n".format(tot_res, a.encode('utf8'), b.encode('utf8')))
-            else:
-                self.file.write("FALSE{0}\t{1}\t{2}\n".format(tot_res, a.encode('utf8'), b.encode('utf8')))
+			if flag_true_match == 1.0:
+				self.file.write("TRUE{0}\t{1}\t{2}\n".format(tot_res, a.encode('utf8'), b.encode('utf8')))
+			else:
+				self.file.write("FALSE{0}\t{1}\t{2}\n".format(tot_res, a.encode('utf8'), b.encode('utf8')))
 
     def evaluate_sorting(self, row, custom_thres, data_format, stemming=False, permuted=False):
         tot_res = ""
