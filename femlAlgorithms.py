@@ -1133,7 +1133,7 @@ class calcLSimilarities(baseMetrics):
     def _generic_evaluator(self, idx, sim_metric_used, str1, str2, is_a_match, custom_thres):
         tot_res = ""
 
-        for alg_info in [[0, 'lsimilarity'], [1, 'avg_lsimilarity']]:
+        for alg_info in [[1, 'avg_lsimilarity']]:
             start_time = time.time()
             sim_val = StaticValues.algorithms[alg_info[1]](str1, str2, method=sim_metric_used)
             res, varnm = self.prediction(idx + alg_info[0], sim_val, is_a_match, custom_thres)
