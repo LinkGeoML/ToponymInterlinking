@@ -11,12 +11,12 @@ python ../feml.py -d datasets/dataset-string-similarity.txt --ev customFEML --on
 
 echo ""
 echo "Classification-based interlinking...Random Forests"
-python ../feml.py -d dataset-string-similarity.txt --onlyLATIN --ev customFEML --ml rf 
+python ../feml.py -d datasets/dataset-string-similarity.txt --onlyLATIN --ev customFEML --ml rf 
 
 echo ""
 echo "Classification-based interlinking...Extremely Randomized Trees"
-python ../feml.py -d dataset-string-similarity.txt --onlyLATIN --ev customFEML --ml et
+python ../feml.py -d datasets/dataset-string-similarity.txt --onlyLATIN --ev customFEML --ml et
 
 echo ""
 echo "Classification-based interlinking...Gradient Boosted Trees"
-python ../feml.py -d dataset-string-similarity.txt --onlyLATIN --ev customFEML --ml xgboost
+python ../feml.py -d datasets/dataset-string-similarity.txt --onlyLATIN --ev customFEML --ml xgboost
