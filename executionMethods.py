@@ -50,7 +50,7 @@ class Evaluator:
 
     def evaluate_metrics(self, dataset='dataset-string-similarity.txt', feature_selection=None, features=None):
         if self.evalClass is not None:
-            self.evalClass.freq_terms_list()
+            self.evalClass.freq_terms_list(self.encoding)
 
             lFeatures = [(True if x == 'True' else False) for x in features.split(',')] if feature_selection is None and features is not None else features
             print("Reading dataset...")
