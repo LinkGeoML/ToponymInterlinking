@@ -13,7 +13,7 @@ The **scripts** folder contains the evaluation setting used to execute the exper
 
 The source code was tested using Python 2.7 and Scikit-Learn 0.20.3 on a Linux server.
 
-Setup
+Setup procedure
 ------------
 
 Download the latest version from the [GitHub repository](https://github.com/LinkGeoML/ToponymInterlinking.git), change to the main directory and run:
