@@ -1,5 +1,5 @@
 # ToponymInterlinking
-This is the Python code used to implement and evaluate the proposed LinkGeoML models for Toponym Interlinking paper sumbitted in [SIGSPATIAL2019](https://sigspatial2019.sigspatial.org/) (under review). The dataset folder contains the train datasets used for evaluation. For the test dataset, we used the one from the Toponym-Matching work (see [Setup](./README.md#setup)).
+This is the Python code used to implement and evaluate the proposed LinkGeoML models for our Toponym Interlinking paper currently under review. The dataset folder contains the train datasets used for evaluation. For the test dataset, we used the one from the Toponym-Matching work (see [Setup](./README.md#setup)).
 
 The **scripts** folder contains the evaluation setting used to execute the experiments and collect the results presented in the paper:
   - `./scripts/basic_train_latin.sh`: collect the effectiveness values for the **basic** setup on the **100k latin** dataset;
