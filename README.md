@@ -1,5 +1,11 @@
 # ToponymInterlinking
-This is the Python code used to implement and evaluate the proposed LinkGeoML models for our Toponym Interlinking paper currently under review. The dataset folder contains the train datasets used for evaluation. For the test dataset, we used the one from the Toponym-Matching work (see [Setup](./README.md#setup)).
+This is the Python code used to implement and evaluate the proposed LinkGeoML models for our 
+accepted paper in ECIR 2020 conference, 
+[Learning Advanced Similarities and Training Features for Toponym Interlinking](https://ecir2020.org/accepted-papers/). 
+The dataset folder contains the train datasets used for evaluation. For the test dataset, 
+we used the one from the Toponym-Matching work (see [Setup](./README.md#setup)).
+
+<!-- Toponym Interlinking) --> 
 
 The **scripts** folder contains the evaluation setting used to execute the experiments and collect the results presented in the paper:
   - `./scripts/basic_train_latin.sh`: collect the effectiveness values for the **basic** setup on the **100k latin** dataset;
