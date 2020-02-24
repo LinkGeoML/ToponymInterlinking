@@ -1,5 +1,5 @@
 alphabet-detector==0.0.7
-bleach==3.0.2
+bleach==3.1.1
 configparser==3.5.0
 coverage==4.5.3
 decorator==4.3.0
